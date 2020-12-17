@@ -2,9 +2,6 @@ package com.cdsi.backend.inve.models.services;
 
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import com.cdsi.backend.inve.models.entity.Arinfa;
 import com.cdsi.backend.inve.models.entity.IdArinfa;
 
@@ -16,5 +13,5 @@ public interface IArinfaService {
 	//BUSCAMOS UN ARTICULO
 	Arinfa findArinfa(IdArinfa objIdAf);
 	//PAGINACION
-	Page<Arinfa> findAll(Pageable pageable,String cia);
+	List<Arinfa> findAll(String cia,String tipo, String clase,String cate);
 }

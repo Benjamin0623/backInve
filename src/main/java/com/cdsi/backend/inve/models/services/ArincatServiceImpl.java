@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.cdsi.backend.inve.models.dao.IArincatDao;
@@ -51,9 +49,9 @@ public class ArincatServiceImpl implements IArincatService {
 	}
 
 	@Override
-	public Page<Arincat> findAll(Pageable pageable, String cia) {
+	public List<Arincat> findAll(String cia,String tipo,String clase) {
 		// TODO Auto-generated method stub
-		return arinDao.findAll(pageable, cia);
+		return arinDao.findAll(cia, tipo, clase);
 	}
 
 }

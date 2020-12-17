@@ -103,13 +103,36 @@ public class ArticuloController {
   	}
   	
      //METODO QUE ENVIA UNA PAGINACION DE ARTICULO
-  	@GetMapping("/list/page/{cia}/{page}")
+  	/*@GetMapping("/list/page/{cia}/{page}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
   	public Page<StockLibroDTO> pagiArticulos(@PathVariable("cia") String cia, @PathVariable("page") Integer page ){
   		Pageable pageable = PageRequest.of(page, 8);
   		return artiStkServi.pagArtiPrecStock(pageable, cia,"1");
-  	} 
-  	
+  	} */
+  	//METODO QUE ENVIA UNA PAGINACION DE ARTICULO
+  	@GetMapping("/list/page/{cia}/{cat}/{lin}/{sub}/{fam}/{alm}/{pre}/{page}")
+  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
+  	public Page<StockLibroDTO> pagiAllArti(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
+  			@PathVariable("lin") String lin,@PathVariable("sub") String sub,@PathVariable("fam") String fam,
+  			@PathVariable("alm") String alm,@PathVariable("pre") String pre,@PathVariable("page") Integer page ){
+  		Pageable pageable = PageRequest.of(page, 8);
+  		return artiStkServi.pagArtiFind(pageable, cia, cat, lin, sub, fam, alm, pre);
+  	}
+  	@GetMapping("/list/page/{cia}/{cat}/{lin}/{alm}/{pre}/{page}")
+  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
+  	public Page<StockLibroDTO> pagiAllArtiLin(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
+  			@PathVariable("lin") String lin,@PathVariable("alm") String alm,@PathVariable("pre") String pre,@PathVariable("page") Integer page ){
+  		Pageable pageable = PageRequest.of(page, 8);
+  		return artiStkServi.pagArtiFindLinea(pageable, cia, cat, lin, alm, pre);
+  	}
+  	@GetMapping("/list/page/{cia}/{cat}/{lin}/{sub}/{alm}/{pre}/{page}")
+  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
+  	public Page<StockLibroDTO> pagiAllArtiSubLin(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
+  			@PathVariable("lin") String lin,@PathVariable("sub") String sub,@PathVariable("alm") String alm,@PathVariable("pre") String pre,
+  			@PathVariable("page") Integer page ){
+  		Pageable pageable = PageRequest.of(page, 8);
+  		return artiStkServi.pagArtiFindSubLinea(pageable, cia, cat, lin, sub, alm, pre);
+  	}
     //METODO QUE NOS DEVUELVE EL PRECIO DEL ARTICULO
   	@GetMapping("/precio/{cia}/{arti}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})

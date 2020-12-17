@@ -1,5 +1,7 @@
 package com.cdsi.backend.inve.models.dao;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -15,9 +17,9 @@ public interface ICatalogoDao extends PagingAndSortingRepository<Catalogo,IdCata
 	
 	//METODO QUE NOS PERMITE TRAER UNA LISTA DE CATALOGOS SEGUN LA EMPRESA
 	@Query("SELECT c FROM Catalogo c WHERE c.idCata.cia = :cia")
-	Page<Catalogo> findAll(Pageable pageable,@Param("cia") String cia);
+	List<Catalogo> findAll(@Param("cia") String cia);
 	
 	//VAMOS A TRAER UN CATALOGO
 	Catalogo findByIdCata(IdCatalogo idCata);
-
+	
 }

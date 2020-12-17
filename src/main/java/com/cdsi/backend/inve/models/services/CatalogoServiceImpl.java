@@ -12,10 +12,9 @@ import com.cdsi.backend.inve.models.dao.ICatalogoDao;
 import com.cdsi.backend.inve.models.entity.Catalogo;
 import com.cdsi.backend.inve.models.entity.IdCatalogo;
 
-
 @Service
 public class CatalogoServiceImpl implements ICatalogoService {
-	
+
 	@Autowired
 	private ICatalogoDao cataDao;
 
@@ -52,10 +51,14 @@ public class CatalogoServiceImpl implements ICatalogoService {
 		return cataDao.findByIdCata(objIdCat);
 	}
 
+	/*
+	 * @Override public Page<Catalogo> findAll(Pageable pageable, String cia) { //
+	 * TODO Auto-generated method stub return cataDao.findAll(pageable,cia); }
+	 */
 	@Override
-	public Page<Catalogo> findAll(Pageable pageable, String cia) {
+	public List<Catalogo> findAllCatalogos(String cia) {
 		// TODO Auto-generated method stub
-		return cataDao.findAll(pageable,cia);
+		return cataDao.findAll(cia);
 	}
 
 }

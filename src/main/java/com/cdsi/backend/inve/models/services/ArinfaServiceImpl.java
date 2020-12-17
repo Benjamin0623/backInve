@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.cdsi.backend.inve.models.dao.IArinfaDao;
@@ -54,10 +52,11 @@ public class ArinfaServiceImpl implements IArinfaService {
 		return  afDao.findByIdArfa(objIdAf);
 	}
 
+
 	@Override
-	public Page<Arinfa> findAll(Pageable pageable, String cia) {
+	public List<Arinfa> findAll(String cia, String tipo, String clase, String cate) {
 		// TODO Auto-generated method stub
-		return afDao.findAll(pageable, cia);
+		return afDao.findAll(cia, tipo, clase, cate);
 	}
 	
 

@@ -18,8 +18,32 @@ public class IArticuloStockServiceImpl implements IArticuloStockService{
 	private ArticuloStockDao artiDao;
 	private final Logger log = LoggerFactory.getLogger(ArticuloServiceImpl.class);
 	
-	@Override
+	/*@Override
 	public Page<StockLibroDTO> pagArtiPrecStock(Pageable pageable, String cia, String cat) {
 		return artiDao.pagArtiPreStock(pageable, cia, cat);
+	}*/
+
+	@Override
+	public Page<StockLibroDTO> pagArtiFind(Pageable pageable,String cia, String cat, String lin, String sub, String fam, String pre,
+			String alm) {
+		
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndFamAndAlmacenAndTipo(pageable, cia, cat, lin, sub, fam, pre, alm);
 	}
+
+	@Override
+	public Page<StockLibroDTO> pagArtiFindLinea(Pageable pageable, String cia, String cat, String lin, String pre,
+			String alm) {
+		// TODO Auto-generated method stub
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndAlmacenAndTipo(pageable, cia, cat, lin, pre, alm);
+	}
+
+	@Override
+	public Page<StockLibroDTO> pagArtiFindSubLinea(Pageable pageable, String cia, String cat, String lin, String sub,
+			String pre, String alm) {
+		// TODO Auto-generated method stub
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndAlmacenAndTipo(pageable, cia, cat, lin, sub, pre, alm);
+	}
+
+	
+
 }

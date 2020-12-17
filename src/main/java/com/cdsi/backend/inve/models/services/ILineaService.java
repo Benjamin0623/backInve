@@ -15,6 +15,7 @@ public interface ILineaService {
 	Linea updateLinea(IdLinea objIdLi,Linea objL);
 	void deleteLinea(IdLinea objIdLi);
 	Linea findLinea(IdLinea objIdLi);
-	Page<Linea> findAll(Pageable pageable,String cia);
+	//Page<Linea> findAll(Pageable pageable,String cia);
+	List<Linea> findLineas(String cia,String tipo);
 
 }

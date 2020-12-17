@@ -15,5 +15,6 @@ public interface ICatalogoService {
 	Catalogo updateCatalogo(IdCatalogo objIdCat,Catalogo objC);
 	void deleteCatalogo(IdCatalogo objIdCat);
 	Catalogo findCatalogo(IdCatalogo objIdCat);
-	Page<Catalogo> findAll(Pageable pageable,String cia);
+	//Page<Catalogo> findAll(Pageable pageable,String cia);
+	List<Catalogo> findAllCatalogos(String cia);
 }
