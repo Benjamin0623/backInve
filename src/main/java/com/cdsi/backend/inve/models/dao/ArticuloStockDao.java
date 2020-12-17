@@ -16,15 +16,18 @@ public interface ArticuloStockDao extends PagingAndSortingRepository<StockLibroD
 	// Page<StockLibroDTO> pagArtiPreStock(Pageable pageable,@Param("cia") String
 	// cia, @Param("cat") String cat);
 
-	Page<StockLibroDTO> findPagByCiaAndCatalogoAndLineaAndSubLineaAndFamAndAlmacenAndTipo(Pageable pageable,
-			@Param("cia") String cia, @Param("cat") String cat, @Param("lin") String lin, @Param("sub") String sub,
-			@Param("fam") String fam, @Param("pre") String pre, @Param("alm") String alm);
-
+	
+	
+	Page<StockLibroDTO> findPagByCiaAndCatalogoAndAlmacenAndTipo(Pageable pageable, @Param("cia") String cia,
+			@Param("cat") String cat, @Param("alm") String alm, @Param("pre") String pre);
+	
 	Page<StockLibroDTO> findPagByCiaAndCatalogoAndLineaAndAlmacenAndTipo(Pageable pageable, @Param("cia") String cia,
 			@Param("cat") String cat, @Param("lin") String lin, @Param("pre") String pre, @Param("alm") String alm);
 
 	Page<StockLibroDTO> findPagByCiaAndCatalogoAndLineaAndSubLineaAndAlmacenAndTipo(Pageable pageable,@Param("cia") String cia,@Param("cat") String cat,
 			@Param("lin") String lin,@Param("sub") String sub, @Param("pre") String pre, @Param("alm") String alm);
 
-
+	Page<StockLibroDTO> findPagByCiaAndCatalogoAndLineaAndSubLineaAndFamAndAlmacenAndTipo(Pageable pageable,
+			@Param("cia") String cia, @Param("cat") String cat, @Param("lin") String lin, @Param("sub") String sub,
+			@Param("fam") String fam, @Param("pre") String pre, @Param("alm") String alm);
 }

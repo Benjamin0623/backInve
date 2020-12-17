@@ -24,24 +24,28 @@ public class IArticuloStockServiceImpl implements IArticuloStockService{
 	}*/
 
 	@Override
-	public Page<StockLibroDTO> pagArtiFind(Pageable pageable,String cia, String cat, String lin, String sub, String fam, String pre,
-			String alm) {
+	public Page<StockLibroDTO> pagArtiFind(Pageable pageable,String cia, String cat, String lin, String sub, String fam, String alm, String pre) {
 		
-		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndFamAndAlmacenAndTipo(pageable, cia, cat, lin, sub, fam, pre, alm);
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndFamAndAlmacenAndTipo(pageable, cia, cat, lin, sub, fam, alm, pre);
 	}
 
 	@Override
-	public Page<StockLibroDTO> pagArtiFindLinea(Pageable pageable, String cia, String cat, String lin, String pre,
-			String alm) {
+	public Page<StockLibroDTO> pagArtiFindLinea(Pageable pageable, String cia, String cat, String lin, String alm, String pre) {
 		// TODO Auto-generated method stub
-		return artiDao.findPagByCiaAndCatalogoAndLineaAndAlmacenAndTipo(pageable, cia, cat, lin, pre, alm);
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndAlmacenAndTipo(pageable, cia, cat, lin, alm, pre);
 	}
 
 	@Override
 	public Page<StockLibroDTO> pagArtiFindSubLinea(Pageable pageable, String cia, String cat, String lin, String sub,
-			String pre, String alm) {
+			String alm, String pre) {
 		// TODO Auto-generated method stub
-		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndAlmacenAndTipo(pageable, cia, cat, lin, sub, pre, alm);
+		return artiDao.findPagByCiaAndCatalogoAndLineaAndSubLineaAndAlmacenAndTipo(pageable, cia, cat, lin, sub, alm, pre);
+	}
+
+	@Override
+	public Page<StockLibroDTO> pagArtiFindCatalogo(Pageable pageable, String cia, String cat, String alm, String pre) {
+		// TODO Auto-generated method stub
+		return artiDao.findPagByCiaAndCatalogoAndAlmacenAndTipo(pageable, cia, cat, alm, pre);
 	}
 
 	

@@ -12,12 +12,11 @@ public interface IArticuloStockService {
 	// Page<StockLibroDTO> pagArtiPrecStock(Pageable pageable,String cia,String
 	// cat);
 
-	Page<StockLibroDTO> pagArtiFind(Pageable pageable, String cia, String cat, String lin, String sub, String fam,
-			String pre, String alm);
+	Page<StockLibroDTO> pagArtiFind(Pageable pageable, String cia, String cat, String lin, String sub, String fam, String pre, String alm);
 
-	Page<StockLibroDTO> pagArtiFindLinea(Pageable pageable, String cia, String cat, String lin,
-			String pre, String alm);
+	Page<StockLibroDTO> pagArtiFindCatalogo(Pageable pageable, String cia, String cat, String alm,String pre);
+	
+	Page<StockLibroDTO> pagArtiFindLinea(Pageable pageable, String cia, String cat, String lin, String alm,String pre);
 
-	Page<StockLibroDTO> pagArtiFindSubLinea(Pageable pageable, String cia, String cat, String lin, String sub,
-			String pre, String alm);
+	Page<StockLibroDTO> pagArtiFindSubLinea(Pageable pageable, String cia, String cat, String lin, String sub, String alm,String pre);
 }

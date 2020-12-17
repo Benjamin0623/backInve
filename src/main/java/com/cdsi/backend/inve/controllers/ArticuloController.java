@@ -109,14 +109,12 @@ public class ArticuloController {
   		Pageable pageable = PageRequest.of(page, 8);
   		return artiStkServi.pagArtiPrecStock(pageable, cia,"1");
   	} */
-  	//METODO QUE ENVIA UNA PAGINACION DE ARTICULO
-  	@GetMapping("/list/page/{cia}/{cat}/{lin}/{sub}/{fam}/{alm}/{pre}/{page}")
+  	@GetMapping("/list/page/{cia}/{cat}/{alm}/{pre}/{page}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
-  	public Page<StockLibroDTO> pagiAllArti(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
-  			@PathVariable("lin") String lin,@PathVariable("sub") String sub,@PathVariable("fam") String fam,
+  	public Page<StockLibroDTO> pagiAllArtiCata(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
   			@PathVariable("alm") String alm,@PathVariable("pre") String pre,@PathVariable("page") Integer page ){
   		Pageable pageable = PageRequest.of(page, 8);
-  		return artiStkServi.pagArtiFind(pageable, cia, cat, lin, sub, fam, alm, pre);
+  		return artiStkServi.pagArtiFindCatalogo(pageable, cia, cat, alm, pre);
   	}
   	@GetMapping("/list/page/{cia}/{cat}/{lin}/{alm}/{pre}/{page}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
@@ -132,6 +130,15 @@ public class ArticuloController {
   			@PathVariable("page") Integer page ){
   		Pageable pageable = PageRequest.of(page, 8);
   		return artiStkServi.pagArtiFindSubLinea(pageable, cia, cat, lin, sub, alm, pre);
+  	}
+  //METODO QUE ENVIA UNA PAGINACION DE ARTICULO
+  	@GetMapping("/list/page/{cia}/{cat}/{lin}/{sub}/{fam}/{alm}/{pre}/{page}")
+  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
+  	public Page<StockLibroDTO> pagiAllArti(@PathVariable("cia") String cia,@PathVariable("cat") String cat,
+  			@PathVariable("lin") String lin,@PathVariable("sub") String sub,@PathVariable("fam") String fam,
+  			@PathVariable("alm") String alm,@PathVariable("pre") String pre,@PathVariable("page") Integer page ){
+  		Pageable pageable = PageRequest.of(page, 8);
+  		return artiStkServi.pagArtiFind(pageable, cia, cat, lin, sub, fam, alm, pre);
   	}
     //METODO QUE NOS DEVUELVE EL PRECIO DEL ARTICULO
   	@GetMapping("/precio/{cia}/{arti}")

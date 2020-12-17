@@ -6,15 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class IdArfapr implements Serializable {
+public class IdArfatp implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name="NO_CIA")
 	private String cia;
+	@Column(name = "TIPO")
 	private String tipo;
-	@Column(name="NO_ARTI")
-	private String arti;
+	
 	public String getCia() {
 		return cia;
 	}
@@ -26,12 +26,6 @@ public class IdArfapr implements Serializable {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
-	}
-	public String getArti() {
-		return arti;
-	}
-	public void setArti(String arti) {
-		this.arti = arti;
 	}
 	
 	@Override
